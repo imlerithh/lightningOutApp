@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <!-- <link rel="stylesheet" href="style.css"> -->
+    </head>
+    <body>
+        <h1>My External Page</h1>
+        <div id="lightning-out"></div>
+        <script src="https://isfujifilm--ffme.sandbox.my.site.com/lightning/lightning.out.js"></script>
+
+        <script>
+
+            const appName = 'c:productRegistrationApp';
+            const componentName = 'c:aTest';
+            const lightningEndpoint = '	https://isfujifilm--ffme.sandbox.my.site.com/partner';
+            const targetElementId = 'lightning-out';
+            const componentAttributes = {
+        
+            };
+        
+            $Lightning.use(
+                    appName, // name of the Lightning Out app
+                    function () { // callback after the framework and app load
+                      $Lightning.createComponent(
+                              componentName, // top-level component of the Lightning Out app
+                              componentAttributes, // attributes to set on the component
+                              targetElementId, // DOM element ID where the component is inserted
+                              function (cmp){ // callback after the component loads
+                                console.log('The LWC was created.');
+                              }
+                      );
+                    },
+                    lightningEndpoint // Experience Cloud site endpoint
+            );
+        
+        
+        </script>
+    
+    </body>
+</html>
