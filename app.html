@@ -1,9 +1,20 @@
 <html>
-    <body>
-        <h1>External Page</h1>
-        
-        <iframe src="https://isfujifilm--ffme.sandbox.my.salesforce-sites.com/middleEast/ProductRegistrationPage" height="400" width="50%" title="Product Registration"></iframe>
-        <br/>
-        <iframe src="https://isfujifilm--ffme.sandbox.my.salesforce-sites.com/middleEast/TrackProductRepair" height="400" width="50%" title="Track Product Repair"></iframe>
-    </body>
+    <style>
+    .iframe-container {
+      display: flex;         /* Располагаем iframe в одну строку */
+      gap: 10px;             /* Небольшой отступ между iframe */
+    }
+    .iframe-container iframe {
+      flex: 1;               /* Каждый iframe занимает равную долю контейнера */
+      height: 400px;         /* Фиксированная высота для обоих iframe */
+      border: 1px solid #ccc;/* Опционально: рамка для визуального разделения */
+    }
+  </style>
+<body>
+  <h1>External Page</h1>
+  <div class="iframe-container">
+    <iframe src="https://isfujifilm--ffme.sandbox.my.salesforce-sites.com/middleEast/ProductRegistrationPage" title="Product Registration"></iframe>
+    <iframe src="https://isfujifilm--ffme.sandbox.my.salesforce-sites.com/middleEast/TrackProductRepair" title="Track Product Repair"></iframe>
+  </div>
+</body>
 </html>
