@@ -1,40 +1,8 @@
 <html>
-    <head>
-        <!-- <link rel="stylesheet" href="style.css"> -->
-    </head>
     <body>
-        <h1>My External Page</h1>
-        <div id="lightning-out"></div>
-        <script src="https://isfujifilm--ffme.sandbox.my.salesforce.com/lightning/lightning.out.js"></script>
-
-        <script>
-
-            const appName = 'c:productRegistrationApp';
-            const componentName = 'c:aTest';
-            const lightningEndpoint = 'https://isfujifilm--ffme.sandbox.my.salesforce.com';
-            const targetElementId = 'lightning-out';
-            const componentAttributes = {
+        <h1>External Page</h1>
         
-            };
+        <iframe src="https://fujifilmportal.stahlman.se/uk/new-repair" height="400" width="600" title="Product Registration"></iframe>
         
-            $Lightning.use(
-                    appName, // name of the Lightning Out app
-                    function () { // callback after the framework and app load
-                      $Lightning.createComponent(
-                              componentName, // top-level component of the Lightning Out app
-                              componentAttributes, // attributes to set on the component
-                              targetElementId, // DOM element ID where the component is inserted
-                              function (cmp){ // callback after the component loads
-                                console.log('The LWC was created.');
-                              }
-                      );
-                    },
-                    lightningEndpoint, // Experience Cloud site endpoint
-                    '6Cel800DFg00000A22zF888Fg000000Q4BFiLwI3jYe2YCTbqVwGh1EDgNYIU3YekDpvvpTuy8ZuRC7dgeMPcAranxPGCSbxwUZyKwA8hWw'
-            );
-        
-        
-        </script>
-    
     </body>
 </html>
