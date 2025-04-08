@@ -1,20 +1,60 @@
 <html>
-    <style>
+<head>
+  <meta charset="UTF-8">
+  <title>External Page</title>
+  <style>
     .iframe-container {
-      display: flex;         /* Располагаем iframe в одну строку */
-      gap: 10px;             /* Небольшой отступ между iframe */
+      display: flex;         /* Position the iframes in one row */
+      gap: 10px;             /* Small gap between the iframes */
     }
     .iframe-container iframe {
-      flex: 1;               /* Каждый iframe занимает равную долю контейнера */
-      height: 400px;         /* Фиксированная высота для обоих iframe */
-      border: 1px solid #ccc;/* Опционально: рамка для визуального разделения */
+      flex: 1;               /* Each iframe takes up equal width */
+      height: 400px;         /* Fixed height for both iframes */
+      border: 1px solid #ccc;/* Optional: border for visual separation */
+    }
+    .input-container {
+      margin-bottom: 20px;
     }
   </style>
+</head>
 <body>
   <h1>External Page</h1>
-  <div class="iframe-container">
-    <iframe src="https://isfujifilm--ffme.sandbox.my.salesforce-sites.com/middleEast/ProductRegistration?email=example@gmail.com" title="Product Registration"></iframe>
-    <iframe src="https://isfujifilm--ffme.sandbox.my.salesforce-sites.com/middleEast/TrackProductRepair" title="Track Product Repair"></iframe>
+  
+  <!-- Email input field and update button -->
+  <div class="input-container">
+    <label for="emailInput">Email:</label>
+    <input type="text" id="emailInput" placeholder="Enter email" value="example@gmail.com">
+    <button id="updateButton">Update Email</button>
   </div>
+  
+  <div class="iframe-container">
+    <!-- The Product Registration iframe -->
+    <iframe id="productRegistrationIframe" 
+            src="https://isfujifilm--ffme.sandbox.my.salesforce-sites.com/middleEast/ProductRegistration?email=example@gmail.com" 
+            title="Product Registration">
+    </iframe>
+    <!-- The Track Product Repair iframe -->
+    <iframe src="https://isfujifilm--ffme.sandbox.my.salesforce-sites.com/middleEast/TrackProductRepair" 
+            title="Track Product Repair">
+    </iframe>
+  </div>
+  
+  <script>
+    // Get DOM elements
+    const emailInput = document.getElementById('emailInput');
+    const updateButton = document.getElementById('updateButton');
+    const productRegistrationIframe = document.getElementById('productRegistrationIframe');
+    
+    // Event listener for the update button
+    updateButton.addEventListener('click', function() {
+      // Retrieve and encode the email value
+      const email = encodeURIComponent(emailInput.value.trim());
+      // Base URL for the Product Registration page
+      const baseUrl = "https://isfujifilm--ffme.sandbox.my.salesforce-sites.com/middleEast/ProductRegistration";
+      
+      // Update the iframe src with the new email query parameter
+      productRegistrationIframe.src = `${baseUrl}?email=${email}`;
+    });
+  </script>
 </body>
 </html>
